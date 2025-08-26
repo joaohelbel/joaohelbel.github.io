@@ -1,37 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b2e52" />
+    <title>João Pedro Helbel — Portfolio</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="navbar">
-                <div class="col-md-2">
-                    <h1>Joao P. Helbel</h1>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-principal fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-900" href="#home" aria-label="Home">
+                <span class="brand-h">H</span>elbel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav"
+                aria-controls="offcanvasNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNav"
+                aria-labelledby="offcanvasNavLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavLabel">João Pedro Helbel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
                 </div>
-                <div class="col-md-10">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Social</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="https://www.linkedin.com/in/joaohelbel"
+                                        target="_blank" rel="noopener">LinkedIn</a></li>
+                                <li><a class="dropdown-item" href="https://github.com/joaohelbel" target="_blank"
+                                        rel="noopener">GitHub</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                        <li class="nav-item d-none d-lg-block">
+                            <button id="downloadBtn" class="btn btn-cta">Download CV</button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
+                    </ul>
+                    <div class="d-lg-none mt-3">
+                        <button id="downloadBtnMobile" class="btn btn-cta w-100">Download CV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <p class="eyebrow">Hello, I'm</p>
+                    <h1 class="display-4 fw-700 mb-2"><span id="typing-animation"></span></h1>
+                    <p class="lead sub mb-4">Full stack developer · Java · Python · R · Tableau · Excel</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button id="sayHello" class="btn btn-cta btn-lg">Say hello</button>
+                        <button id="downloadBtnHero" class="btn btn-outline-cta btn-lg">Download CV</button>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img src="img/Port.png" class="hero-illustration" alt="Portfolio illustration" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave" aria-hidden="true"></div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5 text-center">
+                    <img src="img/JH.png" class="about-photo" alt="João Pedro Helbel photo" />
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="section-title">About</h2>
+                    <p class="section-text">
+                        I’m <strong>João Pedro Helbel</strong>, a developer focused on building clean, data-driven
+                        experiences. I work across the stack with <strong>JavaScript/TypeScript</strong>,
+                        <strong>Python</strong> and
+                        <strong>Java (Spring Boot)</strong>, and I love turning datasets into dashboards and insights.
+                        I’m currently leveling up in <strong>data analytics</strong>, <strong>AWS</strong> (Athena,
+                        Glue, QuickSight),
+                        and crafting UIs with performance and accessibility in mind.
+                    </p>
+                    <ul class="about-list">
+                        <li>🏗 Full-stack foundations: APIs, SQL/ETL, dashboards</li>
+                        <li>📊 Data viz: Chart.js, Tableau, QuickSight</li>
+                        <li>☁️ Cloud & Devops: Git/GitHub, Docker, CI/CD</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Skills</h2>
+            <p class="text-center mb-5 section-text">Main technologies and tools I use on a daily basis.</p>
+
+            <div class="skills-grid">
+                <!-- Front-end -->
+                <div class="skill-box">
+                    <h3>Front-end</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Back-end -->
+                <div class="skill-box">
+                    <h3>Back-end</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Spring Boot</span>
+                    </div>
+                </div>
+
+                <!-- Data & Analytics -->
+                <div class="skill-box">
+                    <h3>Data & Analytics</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">mkdocs</span>
+                        <span class="skill-tag">R</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div class="skill-box">
+                    <h3>DevOps & Tools</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <h2 class="section-title text-center mb-4">Projects</h2>
+        <p class="text-center mb-5 section-text">A few highlights. More on my GitHub.</p>
+        <div class="row g-4">
+            <!-- First Dashboard -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/dash.png" class="project-cover" alt="First dashboard preview">
+                    <div class="project-body">
+                        <h3 class="project-title">First Dashboard</h3>
+                        <p class="project-desc">My initial executive dashboard exploring KPIs, filters, and responsive
+                            layout for clear decision-making.</p>
+                        <div class="tags">
+                            <span>Tableau</span><span>Chart.js</span><span>UI/UX</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Smart Building Dashboard (Absolut Technologies) -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/dash.png" class="project-cover" alt="Smart Building dashboard preview">
+                    <div class="project-body">
+                        <h3 class="project-title">Smart Building Dashboard</h3>
+                        <p class="project-desc">IoT presence sensors + digital twin for <strong>Absolut
+                                Technologies</strong>. ETL with Python/Flask + SQLAlchemy; viz with Chart.js.</p>
+                        <div class="tags">
+                            <span>Python</span><span>Flask</span><span>Chart.js</span><span>MySQL</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Retail BI Pipeline (case solution) -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/mysql.png" class="project-cover" alt="Retail BI pipeline preview">
+                    <div class="project-body">
+                        <h3 class="project-title">Retail BI Pipeline</h3>
+                        <p class="project-desc">Case solution with star schema, Python ETL, and executive KPIs (CR5/HHI,
+                            Top-N, average ticket).</p>
+                        <div class="tags">
+                            <span>Python</span><span>MySQL</span><span>Tableau</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Negrana -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/Landpage.png" class="project-cover" alt="Negrana landing page preview">
+                    <div class="project-body">
+                        <h3 class="project-title">Negrana</h3>
+                        <p class="project-desc">Financial education platform: Figma prototypes and landing page
+                            implemented in HTML/CSS/JS.</p>
+                        <div class="tags">
+                            <span>Figma</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- EMG Sensor -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/hardware.png" class="project-cover" alt="EMG Sensor project preview">
+                    <div class="project-body">
+                        <h3 class="project-title">EMG Sensor</h3>
+                        <p class="project-desc">EMGods: muscle monitoring with EMG sensors, Spring Boot backend, and an
+                            interactive dashboard.</p>
+                        <div class="tags">
+                            <span>Spring Boot</span><span>Java</span><span>Dashboard</span><span>IoT</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- DietController -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/diet.png" class="project-cover" alt="DietController app preview">
+                    <div class="project-body">
+                        <h3 class="project-title">DietController</h3>
+                        <p class="project-desc">Nutrition tracking app with Next.js + React: auth, onboarding
+                            questionnaires, and a calorie calculator.</p>
+                        <div class="tags">
+                            <span>Next.js</span><span>React</span><span>TypeScript</span><span>UI/UX</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Hackathons -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card h-100">
+                    <img src="img/PP.png" class="project-cover" alt="Hackathons preview">
+                    <div class="project-body">
+                        <h3 class="project-title">Hackathons</h3>
+                        <p class="project-desc">Ambev (street vendors ecosystem) and Green Hackathon (sustainability) —
+                            rapid prototyping and teamwork.</p>
+                        <div class="tags">
+                            <span>Innovation</span><span>Agile</span><span>Teamwork</span><span>Problem-Solving</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/joaohelbel" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline-cta">Repository</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Experience</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h3 class="mb-1">MarTech</h3>
+                        <small class="text-muted">02/2024 – 02/2025</small>
+                        <p class="mt-2 mb-0">Applied data science in digital marketing campaigns, focusing on analytics
+                            and performance insights.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h3 class="mb-1">Lab</h3>
+                        <small class="text-muted">06/2024 – 06/2025</small>
+                        <p class="mt-2 mb-0">Collaborative academic projects integrating business, technology, and
+                            innovation with real-world challenges.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h3 class="mb-1">Programming Lab</h3>
+                        <small class="text-muted">06/2024 – 06/2025</small>
+                        <p class="mt-2 mb-0">Hands-on experience in algorithms, data structures, and full-stack
+                            development using Java and Python.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Contact</h2>
+            <p class="text-center mb-5 section-text">Let’s build something great together.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="contact-card needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input id="name" name="name" type="text" class="form-control" required />
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input id="email" name="email" type="email" class="form-control" required />
+                                <div class="invalid-feedback">Please enter a valid email.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                                <div class="invalid-feedback">Please write a message.</div>
+                            </div>
+                            <div class="col-12 d-grid">
+                                <button class="btn btn-cta btn-lg" type="submit">Send message</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="contact-extra mt-4">
+                        <a class="contact-pill" href="mailto:jp27helbel@gmail.com">
+                            <img src="img/email.svg" alt="" /> jp27helbel@gmail.com
+                        </a>
+                        <a class="contact-pill" href="https://wa.me/55" target="_blank" rel="noopener">
+                            <img src="img/whts.svg" alt="" /> WhatsApp
+                        </a>
+                        <a class="contact-pill" href="https://www.linkedin.com/in/joaohelbel" target="_blank"
+                            rel="noopener">
+                            <img src="img/Linkd.svg" alt="" /> LinkedIn
+                        </a>
+                        <a class="contact-pill" href="https://github.com/joaohelbel" target="_blank" rel="noopener">
+                            <img src="img/git.svg" alt="" /> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="mb-0">© <span id="year"></span> João Pedro Helbel. All rights reserved.</p>
+            <a href="#home" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
